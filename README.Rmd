@@ -27,12 +27,19 @@ knitr::opts_chunk$set(
 pak::pak("patterninstitute/mgi.20240527")
 ```
 
-## Example
+## Quick crosswalk between identifiers or symbols
 
 ```{r example}
 library(mgi.20240527)
 
+update_symbol("Dcdc3")
 symbol_to_marker_id("Rp1")
 symbol_to_ensembl_id("Rp1")
+```
+
+## Markers with genomic coordinates
+
+```{r}
+markers()
 ```
 
