@@ -41,21 +41,26 @@ symbol_mapping01 <-
   markers |>
   dplyr::mutate(from = mrk_symbol, to = from) |>
   dplyr::relocate(from, to) |>
-  dplyr::select(-c("synonym", "mrk_symbol"))
+  dplyr::select(-c("synonym", "mrk_symbol")) |>
+  dplyr::distinct()
 
 # Subset of symbols that are remapped from synonyms.
 symbol_mapping02 <-
   markers |>
   dplyr::filter(!is.na(synonym)) |>
-  dplyr::relocate(from = "synonym", to = "mrk_symbol")
+  dplyr::relocate(from = "synonym", to = "mrk_symbol") |>
+  dplyr::group_by(from) %>%
+  dplyr::filter(n() == 1L) %>%
+  dplyr::ungroup()
 
+unique_symbols_in_synonyms <- setdiff(symbol_mapping02$from, symbol_mapping01$from)
+
+symbol_mapping03 <-
+  symbol_mapping02 |>
+  dplyr::filter(from %in% unique_symbols_in_synonyms)
 
 symbol_map <-
-  dplyr::bind_rows(symbol_mapping01, symbol_mapping02) |>
-  dplyr::distinct(from, to, mrk_id) |>
-  dplyr::group_by(from, to) |>
-  dplyr::reframe(mrk_id = list(mrk_id)) |>
-  dplyr::mutate(n = sapply(mrk_id, length))
+  dplyr::bind_rows(symbol_mapping01, symbol_mapping03)
 
 readr::write_rds(symbol_map, file = "inst/extdata/symbol_map.rds", compress = "xz")
 

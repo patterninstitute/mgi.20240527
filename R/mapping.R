@@ -36,8 +36,7 @@ update_symbol <- function(symbol) {
 #' @export
 symbol_to_marker_id <- function(symbol) {
 
-  map <- symbol_map("unique") |>
-    dplyr::mutate(mrk_id = unlist(.data$mrk_id))
+  map <- symbol_map()
 
   symbol_query <- tibble::tibble(from = symbol)
   dplyr::left_join(symbol_query, map, by = "from") |>

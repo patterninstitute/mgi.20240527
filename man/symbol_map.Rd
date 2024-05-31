@@ -4,11 +4,7 @@
 \alias{symbol_map}
 \title{MGI marker mapping}
 \usage{
-symbol_map(set = c("all", "unique"))
-}
-\arguments{
-\item{set}{A string indicating whether all mappings are to be returned
-(\code{"all"}) or just the unique (\code{"unique"}) ones.}
+symbol_map()
 }
 \value{
 A \link[tibble:tibble-package]{tibble} with four variables:
@@ -16,28 +12,15 @@ A \link[tibble:tibble-package]{tibble} with four variables:
 \item \code{from}: A "from" marker symbol.
 \item \code{to}: A "to" marker symbol, i.e. the most recent marker symbol. In most
 cases this coincides with the symbol in \code{from} but not always.
-\item \code{mrk_id}: Marker identifier(s), list-column with identifiers associated
-with the \code{from} and \code{to} symbols.
-\item \code{n}: Number of mappings to identifiers, typically 1 as most mappings are
-unique, but there are mappings to 2 and 3 identifiers.
+\item \code{mrk_id}: Marker identifier.
+\item \code{mrk_name}: Marker name.
 }
 }
 \description{
 \code{\link[=symbol_map]{symbol_map()}} provides a map of MGI marker symbols into the most recent
-symbol, which can be the same, and to MGI marker identifiers. Unfortunately,
-the mapping from symbol to identifier can be degenerate, i.e. one symbol
-may be associated with more than one identifier. The column \code{n} indicates
-how many mappings to identifiers exist. Generally, it is just 1 but there are
-cases of 2 or 3 identifiers for the same symbol. Use the \code{set} argument
-to retrieve only unique mappings (\code{set = "unique"}), default is \code{"all"}, i.e.
-all mappings, both unique and degenerate. This is the reason why the \code{mrk_id}
-is a list-column.
+symbol, which can be the same, and to MGI marker identifiers.
 }
 \examples{
-# Same as `symbol_map("all")`.
 symbol_map()
-
-# Filter out mappings that do not map to one unique identifier.
-symbol_map("unique")
 
 }
