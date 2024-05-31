@@ -1,3 +1,7 @@
 .onLoad <- function(libname, pkgname) {
-  read_rds <<- memoise::memoise(read_rds)
+  symbol_map <<- memoise::memoise(symbol_map)
+  mrk_id_to_ens_id <<- memoise::memoise(mrk_id_to_ens_id)
+  ens_id_to_mrk_id <<- memoise::memoise(ens_id_to_mrk_id)
+  mrk_id_to_entrez_id <<- memoise::memoise(mrk_id_to_entrez_id)
+  entrez_id_to_mrk_id <<- memoise::memoise(entrez_id_to_mrk_id)
 }

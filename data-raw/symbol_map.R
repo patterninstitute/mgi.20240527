@@ -62,5 +62,5 @@ symbol_mapping03 <-
 symbol_map <-
   dplyr::bind_rows(symbol_mapping01, symbol_mapping03)
 
-saveRDS(symbol_map, file = "inst/extdata/symbol_map.rds")
+data.table::fwrite(symbol_map, file = "inst/extdata/symbol_map.csv.tar.gz")
 

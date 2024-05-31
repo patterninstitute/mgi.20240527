@@ -67,10 +67,10 @@ entrez_id_to_mrk_id <-
   dplyr::ungroup()
 
 
-saveRDS(markers, file = "inst/extdata/markers.rds")
+data.table::fwrite(markers, file = "inst/extdata/markers.csv.tar.gz")
 
-saveRDS(mrk_id_to_ens_id, file = "inst/extdata/mrk_id_to_ens_id.rds")
-saveRDS(ens_id_to_mrk_id, file = "inst/extdata/ens_id_to_mrk_id.rds")
+data.table::fwrite(mrk_id_to_ens_id, file = "inst/extdata/mrk_id_to_ens_id.csv.tar.gz")
+data.table::fwrite(ens_id_to_mrk_id, file = "inst/extdata/ens_id_to_mrk_id.csv.tar.gz")
 
-saveRDS(mrk_id_to_entrez_id, file = "inst/extdata/mrk_id_to_entrez_id.rds")
-saveRDS(entrez_id_to_mrk_id, file = "inst/extdata/entrez_id_to_mrk_id.rds")
+data.table::fwrite(mrk_id_to_entrez_id, file = "inst/extdata/mrk_id_to_entrez_id.csv.tar.gz")
+data.table::fwrite(entrez_id_to_mrk_id, file = "inst/extdata/entrez_id_to_mrk_id.csv.tar.gz")

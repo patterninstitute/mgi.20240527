@@ -18,10 +18,10 @@
 symbol_map <- function() {
 
   file <-
-    system.file("extdata/symbol_map.rds",
+    system.file("extdata/symbol_map.csv.tar.gz",
                 package = "mgi.20240527",
                 mustWork = TRUE)
 
-  read_rds(file = file)
+  readr::read_csv(file = file, col_types = "cccc")
 
 }
