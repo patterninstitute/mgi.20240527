@@ -1,0 +1,8 @@
+data-raw/MGI_Gene_Model_Coord.rpt.xz filter=lfs diff=lfs merge=lfs -text
+data-raw/MRK_List2.rpt.xz filter=lfs diff=lfs merge=lfs -text
+inst/extdata/ens_id_to_mrk_id.rds filter=lfs diff=lfs merge=lfs -text
+inst/extdata/entrez_id_to_mrk_id.rds filter=lfs diff=lfs merge=lfs -text
+inst/extdata/markers.rds filter=lfs diff=lfs merge=lfs -text
+inst/extdata/mrk_id_to_ens_id.rds filter=lfs diff=lfs merge=lfs -text
+inst/extdata/mrk_id_to_entrez_id.rds filter=lfs diff=lfs merge=lfs -text
+inst/extdata/symbol_map.rds filter=lfs diff=lfs merge=lfs -text
