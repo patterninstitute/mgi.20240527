@@ -40,6 +40,8 @@ symbol_to_ensembl_id("Rp1")
 ## Markers with genomic coordinates
 
 ```{r}
-markers()
+markers("MGI:87860")
+
+markers("ENSMUSG00000066583", "ensembl_gene_id")
 ```
 
