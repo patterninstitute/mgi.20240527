@@ -8,6 +8,8 @@
 \alias{marker_id_to_entrez_id}
 \alias{entrez_id_to_marker_id}
 \alias{symbol_to_ensembl_id}
+\alias{marker_id_to_symbol}
+\alias{ensembl_id_to_symbol}
 \title{Crosswalks involving gene markers}
 \usage{
 update_symbol(symbol)
@@ -23,6 +25,10 @@ marker_id_to_entrez_id(marker_id)
 entrez_id_to_marker_id(entrez_id)
 
 symbol_to_ensembl_id(symbol)
+
+marker_id_to_symbol(marker_id)
+
+ensembl_id_to_symbol(ensembl_id)
 }
 \arguments{
 \item{symbol}{A character vector of marker symbols.}
@@ -44,6 +50,9 @@ A character of most recent marker symbols or identifiers.
 \item \code{\link[=ensembl_id_to_marker_id]{ensembl_id_to_marker_id()}} maps Ensembl gene identifiers to MGI gene markers identifiers.
 \item \code{\link[=marker_id_to_entrez_id]{marker_id_to_entrez_id()}} maps MGI gene markers identifiers to an Entrez gene identifiers.
 \item \code{\link[=entrez_id_to_marker_id]{entrez_id_to_marker_id()}} maps Entrez gene identifiers to MGI gene markers identifiers.
+\item \code{\link[=symbol_to_ensembl_id]{symbol_to_ensembl_id()}} maps (potentially old) symbols to Ensembl identifiers.
+\item \code{\link[=marker_id_to_symbol]{marker_id_to_symbol()}} maps MGI gene markers identifiers to marker symbols.
+\item \code{\link[=ensembl_id_to_symbol]{ensembl_id_to_symbol()}} maps Ensembl gene identifiers to marker symbols.
 }
 }
 \examples{

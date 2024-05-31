@@ -6,6 +6,9 @@
 #' - [ensembl_id_to_marker_id()] maps Ensembl gene identifiers to MGI gene markers identifiers.
 #' - [marker_id_to_entrez_id()] maps MGI gene markers identifiers to an Entrez gene identifiers.
 #' - [entrez_id_to_marker_id()] maps Entrez gene identifiers to MGI gene markers identifiers.
+#' - [symbol_to_ensembl_id()] maps (potentially old) symbols to Ensembl identifiers.
+#' - [marker_id_to_symbol()] maps MGI gene markers identifiers to marker symbols.
+#' - [ensembl_id_to_symbol()] maps Ensembl gene identifiers to marker symbols.
 #'
 #'
 #' @param symbol A character vector of marker symbols.
@@ -89,4 +92,21 @@ entrez_id_to_marker_id <- function(entrez_id) {
 #' @export
 symbol_to_ensembl_id <- function(symbol) {
   marker_id_to_ensembl_id(symbol_to_marker_id(symbol))
+}
+
+#' @rdname update_symbol
+#' @export
+marker_id_to_symbol <- function(marker_id) {
+
+  map <- markers()
+  marker_id_query <- tibble::tibble(mrk_id = marker_id)
+  dplyr::left_join(marker_id_query, map, by = "mrk_id") |>
+    dplyr::pull("mrk_symbol")
+
+}
+
+#' @rdname update_symbol
+#' @export
+ensembl_id_to_symbol <- function(ensembl_id) {
+  marker_id_to_symbol(ensembl_id_to_marker_id(ensembl_id))
 }
