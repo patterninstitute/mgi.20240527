@@ -67,10 +67,10 @@ entrez_id_to_mrk_id <-
   dplyr::ungroup()
 
 
-readr::write_rds(markers, file = "inst/extdata/markers.rds", compress = "xz")
+saveRDS(markers, file = "inst/extdata/markers.rds")
 
-readr::write_rds(mrk_id_to_ens_id, file = "inst/extdata/mrk_id_to_ens_id.rds", compress = "xz")
-readr::write_rds(ens_id_to_mrk_id, file = "inst/extdata/ens_id_to_mrk_id.rds", compress = "xz")
+saveRDS(mrk_id_to_ens_id, file = "inst/extdata/mrk_id_to_ens_id.rds")
+saveRDS(ens_id_to_mrk_id, file = "inst/extdata/ens_id_to_mrk_id.rds")
 
-readr::write_rds(mrk_id_to_entrez_id, file = "inst/extdata/mrk_id_to_entrez_id.rds", compress = "xz")
-readr::write_rds(entrez_id_to_mrk_id, file = "inst/extdata/entrez_id_to_mrk_id.rds", compress = "xz")
+saveRDS(mrk_id_to_entrez_id, file = "inst/extdata/mrk_id_to_entrez_id.rds")
+saveRDS(entrez_id_to_mrk_id, file = "inst/extdata/entrez_id_to_mrk_id.rds")
