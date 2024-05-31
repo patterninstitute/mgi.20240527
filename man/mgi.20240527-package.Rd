@@ -4,9 +4,9 @@
 \name{mgi.20240527-package}
 \alias{mgi.20240527}
 \alias{mgi.20240527-package}
-\title{mgi.20240527: What the Package Does (One Line, Title Case)}
+\title{mgi.20240527: MGI Marker Symbol and Identifiers}
 \description{
-What the package does (one paragraph).
+MGI marker symbol and identifiers and easy crosswalks to Ensembl and Entrez gene identifiers.
 }
 \author{
 \strong{Maintainer}: Ramiro Magno \email{rmagno@pattern.institute} (\href{https://orcid.org/0000-0001-5226-3441}{ORCID})

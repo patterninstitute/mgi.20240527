@@ -84,3 +84,9 @@ entrez_id_to_marker_id <- function(entrez_id) {
   dplyr::left_join(entrez_id_query, map, by = "entrez_gene_id") |>
     dplyr::pull("mrk_id")
 }
+
+#' @rdname update_symbol
+#' @export
+symbol_to_ensembl_id <- function(symbol) {
+  marker_id_to_ensembl_id(symbol_to_marker_id(symbol))
+}

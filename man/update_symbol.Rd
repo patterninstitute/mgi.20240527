@@ -7,6 +7,7 @@
 \alias{ensembl_id_to_marker_id}
 \alias{marker_id_to_entrez_id}
 \alias{entrez_id_to_marker_id}
+\alias{symbol_to_ensembl_id}
 \title{Crosswalks involving gene markers}
 \usage{
 update_symbol(symbol)
@@ -20,6 +21,8 @@ ensembl_id_to_marker_id(ensembl_id)
 marker_id_to_entrez_id(marker_id)
 
 entrez_id_to_marker_id(entrez_id)
+
+symbol_to_ensembl_id(symbol)
 }
 \arguments{
 \item{symbol}{A character vector of marker symbols.}
