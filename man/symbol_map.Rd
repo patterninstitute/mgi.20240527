@@ -18,7 +18,7 @@ cases this coincides with the symbol in \code{from} but not always.
 }
 \description{
 \code{\link[=symbol_map]{symbol_map()}} provides a map of MGI marker symbols into the most recent
-symbol, which can be the same, and to MGI marker identifiers.
+symbol, which can be the same, and to MGI marker identifiers and names.
 }
 \examples{
 symbol_map()

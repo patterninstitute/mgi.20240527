@@ -1,7 +1,7 @@
 #' MGI marker mapping
 #'
 #' [symbol_map()] provides a map of MGI marker symbols into the most recent
-#' symbol, which can be the same, and to MGI marker identifiers.
+#' symbol, which can be the same, and to MGI marker identifiers and names.
 #'
 #' @returns A [tibble][tibble::tibble-package] with four variables:
 #' - `from`: A "from" marker symbol.
@@ -13,7 +13,6 @@
 #' @examples
 #' symbol_map()
 #'
-#' @importFrom rlang .data
 #' @export
 symbol_map <- function() {
 
