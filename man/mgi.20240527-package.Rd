@@ -11,7 +11,9 @@ Mouse Genome Informatics (MGI) marker symbol and identifiers, and easy crosswalk
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://www.pattern.institute/mgi.20240527/}
+  \item \url{https://www.pattern.institute/mgi.20240527/}
+  \item \url{https://github.com/patterninstitute/mgi.20240527}
+  \item Report bugs at \url{https://www.pattern.institute/mgi.20240527/issues}
 }
 
 }

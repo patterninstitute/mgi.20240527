@@ -29,6 +29,13 @@ This package is based on the data release from May 27, 2024, ensuring users have
 access to the most current information available for their genomic research
 needs.
 
+This package may be useful if you need a fast, offline solution for mouse gene
+marker remapping and are comfortable with the data being pinned to the May 27,
+2024 release.
+
+Note that the authors of this package are not affiliated with the original MGI
+data providers.
+
 ## Installation
 
 ``` r
@@ -52,11 +59,9 @@ markers()
 ```{r}
 # As of 27 May 2024, Dcdc3 symbol is deprecated in favor of Rp1.
 update_symbol("Dcdc3")
-
 # Because Dcdc3 is remapped to Rp1 both symbols are mapped to MGI:1341105.
 symbol_to_marker_id("Dcdc3")
 symbol_to_marker_id("Rp1")
-
 symbol_to_marker_id("Dcdc3")
 symbol_to_ensembl_id("Rp1")
 ```
@@ -65,7 +70,6 @@ symbol_to_ensembl_id("Rp1")
 
 ```{r}
 markers("MGI:87860")
-
 markers("ENSMUSG00000066583", "ensembl_gene_id")
 ```
 
@@ -82,29 +86,22 @@ symbols <- c(
   "6430567E01Rik",
   "VINAS"
 )
-
 # Current MGI marker symbols as of 2024-05-27.
 update_symbol(symbols)
-
 # Map MGI marker symbols to marker identifiers.
 symbol_to_marker_id(symbols)
-
 # Map MGI marker symbols to Ensembl identifiers.
 symbol_to_ensembl_id(symbols)
-
 # Map MGI marker symbols to Entrez identifiers.
 symbol_to_entrez_id(symbols)
-
 # Deprecated Ensembl identifier, e.g. 1700010L13Rik (MGI:1922878) should map
 # to ENSMUSG00000074760.
 # URL: https://www.informatics.jax.org/marker/MGI:1922878
 symbol_to_marker_id("1700010L13Rik")
-
 # But results in NA because ENSMUSG00000074760 has status Retired:
 # URL: https://www.ensembl.org/Mus_musculus/Gene/Idhistory?g=ENSMUSG00000074760
 symbol_to_ensembl_id("1700010L13Rik")
 ```
-
 
 ## Disclaimer
 
@@ -117,3 +114,13 @@ The `{mgi.20240527}` package is provided "as is" without any warranties, express
 - Baldarelli RM, Smith CM, Finger JH, Hayamizu TF, McCright IJ, Xu J, Shaw DR, Beal JS, Blodgett O, Campbell J, Corbani LE, Frost PJ, Giannatto SC, Miers DB, Kadin JA, Richardson JE, Ringwald M. 2021. The mouse Gene Expression Database (GXD): 2021 update. Nucleic Acids Res. 2021 Jan 8;49(D1):D924-D931.
 
 - Krupke DM, Begley DA, Sundberg JP, Richardson JE, Neuhauser SB, Bult CJ. The Mouse Tumor Biology Database: A Comprehensive Resource for Mouse Models of Human Cancer. Cancer Res. 2017 Nov 1;77(21):e67-e70.
+
+## Related software
+
+- MGI main data portal: https://www.informatics.jax.org/
+- MGI batch query: https://www.informatics.jax.org/batch
+- MouseMine: https://www.mousemine.org/mousemine/begin.do
+- BioConductor packages:
+  - [org.Mm.eg.db](https://doi.org/doi:10.18129/B9.bioc.org.Mm.eg.db)
+  - [AnnotationDbi](https://doi.org/doi:10.18129/B9.bioc.AnnotationDbi)
+  - [biomaRt](https://doi.org/doi:10.18129/B9.bioc.biomaRt)

@@ -21,4 +21,5 @@ Imports:
     readr,
     rlang,
     tibble
-URL: http://www.pattern.institute/mgi.20240527/
+URL: https://www.pattern.institute/mgi.20240527/, https://github.com/patterninstitute/mgi.20240527
+BugReports: https://www.pattern.institute/mgi.20240527/issues

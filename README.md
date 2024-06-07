@@ -20,6 +20,13 @@ models. This package is based on the data release from May 27, 2024,
 ensuring users have access to the most current information available for
 their genomic research needs.
 
+This package may be useful if you need a fast, offline solution for
+mouse gene marker remapping and are comfortable with the data being
+pinned to the May 27, 2024 release.
+
+Note that the authors of this package are not affiliated with the
+original MGI data providers.
+
 ## Installation
 
 ``` r
@@ -65,7 +72,6 @@ update_symbol("Dcdc3")
 ```
 
 ``` r
-
 # Because Dcdc3 is remapped to Rp1 both symbols are mapped to MGI:1341105.
 symbol_to_marker_id("Dcdc3")
 #> [1] "MGI:1341105"
@@ -77,7 +83,6 @@ symbol_to_marker_id("Rp1")
 ```
 
 ``` r
-
 symbol_to_marker_id("Dcdc3")
 #> [1] "MGI:1341105"
 ```
@@ -101,7 +106,6 @@ markers("MGI:87860")
 ```
 
 ``` r
-
 markers("ENSMUSG00000066583", "ensembl_gene_id")
 #> # A tibble: 1 × 15
 #>   ensembl_gene_id    mrk_id    mrk_type mrk_symbol mrk_name         genome_build
@@ -126,7 +130,6 @@ symbols <- c(
   "6430567E01Rik",
   "VINAS"
 )
-
 # Current MGI marker symbols as of 2024-05-27.
 update_symbol(symbols)
 #> [1] "Xkr4"          NA              "1110004F10Rik" "Sox17"        
@@ -134,7 +137,6 @@ update_symbol(symbols)
 ```
 
 ``` r
-
 # Map MGI marker symbols to marker identifiers.
 symbol_to_marker_id(symbols)
 #> [1] "MGI:3528744" NA            "MGI:1929274" "MGI:107543"  "MGI:1922878"
@@ -142,7 +144,6 @@ symbol_to_marker_id(symbols)
 ```
 
 ``` r
-
 # Map MGI marker symbols to Ensembl identifiers.
 symbol_to_ensembl_id(symbols)
 #> [1] "ENSMUSG00000051951" NA                   "ENSMUSG00000030663"
@@ -151,14 +152,12 @@ symbol_to_ensembl_id(symbols)
 ```
 
 ``` r
-
 # Map MGI marker symbols to Entrez identifiers.
 symbol_to_entrez_id(symbols)
 #> [1] "497097" NA       "56372"  "20671"  NA       "22793"  "108946" "69002"
 ```
 
 ``` r
-
 # Deprecated Ensembl identifier, e.g. 1700010L13Rik (MGI:1922878) should map
 # to ENSMUSG00000074760.
 # URL: https://www.informatics.jax.org/marker/MGI:1922878
@@ -167,7 +166,6 @@ symbol_to_marker_id("1700010L13Rik")
 ```
 
 ``` r
-
 # But results in NA because ENSMUSG00000074760 has status Retired:
 # URL: https://www.ensembl.org/Mus_musculus/Gene/Idhistory?g=ENSMUSG00000074760
 symbol_to_ensembl_id("1700010L13Rik")
@@ -202,3 +200,13 @@ its use.
 - Krupke DM, Begley DA, Sundberg JP, Richardson JE, Neuhauser SB, Bult
   CJ. The Mouse Tumor Biology Database: A Comprehensive Resource for
   Mouse Models of Human Cancer. Cancer Res. 2017 Nov 1;77(21):e67-e70.
+
+## Related software
+
+- MGI main data portal: <https://www.informatics.jax.org/>
+- MGI batch query: <https://www.informatics.jax.org/batch>
+- MouseMine: <https://www.mousemine.org/mousemine/begin.do>
+- BioConductor packages:
+  - [org.Mm.eg.db](https://doi.org/doi:10.18129/B9.bioc.org.Mm.eg.db)
+  - [AnnotationDbi](https://doi.org/doi:10.18129/B9.bioc.AnnotationDbi)
+  - [biomaRt](https://doi.org/doi:10.18129/B9.bioc.biomaRt)
