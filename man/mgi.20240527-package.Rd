@@ -6,7 +6,7 @@
 \alias{mgi.20240527-package}
 \title{mgi.20240527: MGI Marker Symbol and Identifiers}
 \description{
-MGI marker symbol and identifiers and easy crosswalks to Ensembl and Entrez gene identifiers.
+Mouse Genome Informatics (MGI) marker symbol and identifiers, and easy crosswalks to Ensembl and Entrez gene identifiers based on the reports: list of mouse genetic markers (MRK_List2.rpt) and MGI gene model coordinates (MGI_Gene_Model_Coord.rpt), obtained from the MGI database by Baldarelli et al. (2024) \url{https://www.informatics.jax.org/downloads/reports}.
 }
 \author{
 \strong{Maintainer}: Ramiro Magno \email{rmagno@pattern.institute} (\href{https://orcid.org/0000-0001-5226-3441}{ORCID})

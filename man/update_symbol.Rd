@@ -10,7 +10,8 @@
 \alias{symbol_to_ensembl_id}
 \alias{marker_id_to_symbol}
 \alias{ensembl_id_to_symbol}
-\title{Crosswalks involving gene markers}
+\alias{symbol_to_entrez_id}
+\title{Crosswalks for MGI markers}
 \usage{
 update_symbol(symbol)
 
@@ -29,6 +30,8 @@ symbol_to_ensembl_id(symbol)
 marker_id_to_symbol(marker_id)
 
 ensembl_id_to_symbol(ensembl_id)
+
+symbol_to_entrez_id(symbol)
 }
 \arguments{
 \item{symbol}{A character vector of marker symbols.}
@@ -40,27 +43,61 @@ ensembl_id_to_symbol(ensembl_id)
 \item{entrez_id}{A character vector of Entrez gene identifiers.}
 }
 \value{
-A character of most recent marker symbols or identifiers.
+A character of mapped marker symbols or identifiers (as of 27 May
+2024).
 }
 \description{
+Crosswalks involving MGI gene symbols, identifiers, Entrez gene identifiers
+and Ensembl gene identifiers.
+}
+\details{
+Mappings to Entrez or Ensembl gene identifiers are provided only when these
+identifiers were valid at 27 May 2024, in other words, mappings to
+identifiers that have been deprecated results in \code{NA}.
 \itemize{
 \item \code{\link[=update_symbol]{update_symbol()}} maps (potentially old) symbols to most up-to-date symbols.
 \item \code{\link[=symbol_to_marker_id]{symbol_to_marker_id()}} maps (potentially old) symbols to marker identifiers.
-\item \code{\link[=marker_id_to_ensembl_id]{marker_id_to_ensembl_id()}} maps MGI gene markers identifiers to an Ensembl gene identifiers.
-\item \code{\link[=ensembl_id_to_marker_id]{ensembl_id_to_marker_id()}} maps Ensembl gene identifiers to MGI gene markers identifiers.
-\item \code{\link[=marker_id_to_entrez_id]{marker_id_to_entrez_id()}} maps MGI gene markers identifiers to an Entrez gene identifiers.
-\item \code{\link[=entrez_id_to_marker_id]{entrez_id_to_marker_id()}} maps Entrez gene identifiers to MGI gene markers identifiers.
 \item \code{\link[=symbol_to_ensembl_id]{symbol_to_ensembl_id()}} maps (potentially old) symbols to Ensembl identifiers.
+\item \code{\link[=symbol_to_entrez_id]{symbol_to_entrez_id()}} maps (potentially old) symbols to Entrez gene identifiers.
 \item \code{\link[=marker_id_to_symbol]{marker_id_to_symbol()}} maps MGI gene markers identifiers to marker symbols.
+\item \code{\link[=marker_id_to_ensembl_id]{marker_id_to_ensembl_id()}} maps MGI gene markers identifiers to an Ensembl gene identifiers.
+\item \code{\link[=marker_id_to_entrez_id]{marker_id_to_entrez_id()}} maps MGI gene markers identifiers to an Entrez gene identifiers.
+\item \code{\link[=ensembl_id_to_marker_id]{ensembl_id_to_marker_id()}} maps Ensembl gene identifiers to MGI gene markers identifiers.
 \item \code{\link[=ensembl_id_to_symbol]{ensembl_id_to_symbol()}} maps Ensembl gene identifiers to marker symbols.
+\item \code{\link[=entrez_id_to_marker_id]{entrez_id_to_marker_id()}} maps Entrez gene identifiers to MGI gene markers identifiers.
 }
 }
 \examples{
-symbols <- c("Xkr4", "LOC102640625", "LOC102640548", "Rp1", "Sox17",
-             "Gm7357", "Gm7369", "LOC102640704", "LOC102631571", "Mrpl15")
+symbols <- c(
+"Xkr4",
+"LOC102640625",
+"sid2057",
+"Sox17",
+"ENSMUSG00000074760",
+"R75157",
+"6430567E01Rik",
+"VINAS"
+)
 
+# Current MGI marker symbols as of 2024-05-27.
 update_symbol(symbols)
 
+# Map MGI marker symbols to marker identifiers.
 symbol_to_marker_id(symbols)
+
+# Map MGI marker symbols to Ensembl identifiers.
+symbol_to_ensembl_id(symbols)
+
+# Map MGI marker symbols to Entrez identifiers.
+symbol_to_entrez_id(symbols)
+
+# Deprecated Ensembl identifier, e.g. 1700010L13Rik (MGI:1922878) should map
+# to ENSMUSG00000074760.
+# URL: https://www.informatics.jax.org/marker/MGI:1922878
+symbol_to_marker_id("1700010L13Rik")
+
+# But results in `NA` because ENSMUSG00000074760 has status Retired:
+# URL: https://www.ensembl.org/Mus_musculus/Gene/Idhistory?g=ENSMUSG00000074760
+symbol_to_ensembl_id("1700010L13Rik")
 
 }

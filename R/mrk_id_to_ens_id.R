@@ -27,7 +27,7 @@ mrk_id_to_entrez_id <- function() {
                 package = "mgi.20240527",
                 mustWork = TRUE)
 
-  readr::read_csv(file = file, col_types = "ci")
+  readr::read_csv(file = file, col_types = "cc")
 
 }
 
@@ -38,6 +38,6 @@ entrez_id_to_mrk_id <- function() {
                 package = "mgi.20240527",
                 mustWork = TRUE)
 
-  readr::read_csv(file = file, col_types = "ic")
+  readr::read_csv(file = file, col_types = "cc")
 
 }

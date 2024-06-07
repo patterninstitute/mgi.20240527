@@ -6,8 +6,11 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-5226-3441")),
     person("Pattern Institute", role = c("cph", "fnd"))
   )
-Description: MGI marker symbol and identifiers and easy crosswalks to Ensembl
-    and Entrez gene identifiers.
+Description: Mouse Genome Informatics (MGI) marker symbol and identifiers, and
+    easy crosswalks to Ensembl and Entrez gene identifiers based on the
+    reports: list of mouse genetic markers (MRK_List2.rpt) and MGI gene model
+    coordinates (MGI_Gene_Model_Coord.rpt), obtained from the MGI database by 
+    Baldarelli et al. (2024) <https://www.informatics.jax.org/downloads/reports>.
 License: CC BY 4.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

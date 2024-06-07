@@ -25,7 +25,7 @@ col_names <-
     "PHONY"
   )
 
-col_types <- "ccccciciiccciic-"
+col_types <- "ccccccciiccciic-"
 chromosomes <- c(1:19, "X", "Y", "MT")
 strands <- c("+", "-")
 markers <- readr::read_tsv(
