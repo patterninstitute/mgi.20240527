@@ -21,12 +21,13 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The `{mgi.20240527}` package is an R data annotation tool designed to provide
-Mouse Genome Informatics (MGI) gene marker identifiers, symbols, and names. It
-offers essential functionality for quick mapping between symbols, identifiers,
-and names, as well as converting to and from Entrez and Ensembl gene
-identifiers, aligned with the latest gene models. This package is based on the
-data release from May 27, 2024, ensuring users have access to the most current
-information available for their genomic research needs.
+[Mouse Genome Informatics (MGI)](https://www.informatics.jax.org/) gene marker
+identifiers, symbols, and names. It offers essential functionality for quick
+mapping between symbols, identifiers, and names, as well as converting to and
+from Entrez and Ensembl gene identifiers, aligned with the latest gene models.
+This package is based on the data release from May 27, 2024, ensuring users have
+access to the most current information available for their genomic research
+needs.
 
 ## Installation
 
@@ -35,13 +36,28 @@ information available for their genomic research needs.
 pak::pak("patterninstitute/mgi.20240527")
 ```
 
-## Crosswalk between identifiers or symbols
+## MGI gene markers
 
-```{r example}
+The list of gene markers returned by the function `markers()` corresponds
+to those for which an associated gene model existed as of 27 May 2024.
+
+```{r}
 library(mgi.20240527)
 
+markers()
+```
+
+## Crosswalk between identifiers or symbols
+
+```{r}
+# As of 27 May 2024, Dcdc3 symbol is deprecated in favor of Rp1.
 update_symbol("Dcdc3")
+
+# Because Dcdc3 is remapped to Rp1 both symbols are mapped to MGI:1341105.
+symbol_to_marker_id("Dcdc3")
 symbol_to_marker_id("Rp1")
+
+symbol_to_marker_id("Dcdc3")
 symbol_to_ensembl_id("Rp1")
 ```
 
@@ -93,3 +109,11 @@ symbol_to_ensembl_id("1700010L13Rik")
 ## Disclaimer
 
 The `{mgi.20240527}` package is provided "as is" without any warranties, express or implied. While we strive to ensure the accuracy and reliability of the data, we do not guarantee its completeness or correctness. The package is based on the data release from May 27, 2024, and may not include subsequent updates or corrections. Users are encouraged to verify the information independently and use it at their own risk. The authors and maintainers of this package are not liable for any direct, indirect, incidental, or consequential damages arising from its use.
+
+## References
+
+- Baldarelli RM, Smith CL, Ringwald M, Richardson JE, Bult CJ, Mouse Genome Informatics Group. 2024. Mouse Genome Informatics: an integrated knowledgebase system for the laboratory mouse. Genetics. 2024 May 7;227(1):iyae031.
+
+- Baldarelli RM, Smith CM, Finger JH, Hayamizu TF, McCright IJ, Xu J, Shaw DR, Beal JS, Blodgett O, Campbell J, Corbani LE, Frost PJ, Giannatto SC, Miers DB, Kadin JA, Richardson JE, Ringwald M. 2021. The mouse Gene Expression Database (GXD): 2021 update. Nucleic Acids Res. 2021 Jan 8;49(D1):D924-D931.
+
+- Krupke DM, Begley DA, Sundberg JP, Richardson JE, Neuhauser SB, Bult CJ. The Mouse Tumor Biology Database: A Comprehensive Resource for Mouse Models of Human Cancer. Cancer Res. 2017 Nov 1;77(21):e67-e70.
