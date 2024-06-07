@@ -1,0 +1,9 @@
+pandoc: 3.1.11
+pkgdown: 2.0.9
+pkgdown_sha: ~
+articles: {}
+last_built: 2024-06-07T00:06Z
+urls:
+  reference: https://www.pattern.institute/mgi.20240527/reference
+  article: https://www.pattern.institute/mgi.20240527/articles
+
